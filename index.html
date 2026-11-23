@@ -3,27 +3,93 @@
 <!-- Published Nov 13, 2026, 5:12 AM UTC -->
 <html dir="ltr">
 <head>
+    <script>
+      (function() {
+        const studioTitle = "Right Now Studio | Abhishek Rathod";
+        document.title = studioTitle;
+        let currentTitle = studioTitle;
+        try {
+          Object.defineProperty(document, 'title', {
+            get: function() { return currentTitle; },
+            set: function(val) {
+              if (val && !val.toLowerCase().includes("framer")) {
+                currentTitle = val;
+              }
+            }
+          });
+        } catch(e) {}
+        document.addEventListener('DOMContentLoaded', function() {
+          const titleEl = document.querySelector('title');
+          if (titleEl) {
+            titleEl.textContent = studioTitle;
+            new MutationObserver(function() {
+              if (titleEl.textContent.toLowerCase().includes("framer")) {
+                titleEl.textContent = studioTitle;
+              }
+            }).observe(titleEl, { childList: true });
+          }
+        });
+      })();
+    </script>
+    <script type="importmap">
+    {
+      "imports": {
+        "https://framer.com/edit/init.mjs": "data:text/javascript,export function createEditorBar(){ return () => null; }"
+      }
+    }
+    </script>
+    <script>
+      try {
+        localStorage.removeItem("__framer_force_showing_editorbar_since");
+        localStorage.removeItem("__framer_editorbar_dismissed");
+        localStorage.removeItem("__framer_user");
+        for (let i = 0; i < localStorage.length; i++) {
+          let k = localStorage.key(i);
+          if (k && (k.indexOf('editorbar') !== -1 || k.indexOf('framer') !== -1)) {
+            localStorage.removeItem(k);
+          }
+        }
+      } catch (e) {}
+    </script>
+    <style id="framer-override-hide">
+      #__framer-editorbar,
+      #__framer-editorbar-container,
+      [data-framer-editorbar],
+      .framer-editorbar,
+      .framer-edit-button,
+      #__framer-badge-container,
+      #__framer-badge,
+      .__framer-badge,
+      iframe[src*="framer.com/edit"] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
+      }
+    </style>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=1521">
 	<meta name="generator" content="Framer 559aa4d">
-	<title>Abhishek Rathod â€” Industrial Designer | Right Now Studio</title>
+	<title>Right Now Studio | Abhishek Rathod</title>
     <link rel="canonical" href="https://cherished-objects-586125.framer.app/" data-framer-generated-canonical><meta property="og:url" content="https://cherished-objects-586125.framer.app/"><meta name="description" content="Made with Framer">
     <meta name="framer-search-index" content="https://framerusercontent.com/sites/AC86MZNnfTWY6YqWAoWlV/searchIndex-H2R9K1qG0Qb6.json">
     <meta name="framer-search-index-fallback" content="https://framerusercontent.com/sites/AC86MZNnfTWY6YqWAoWlV/searchIndex-C2Yi57pb9Sdd.json">
-    <link href="https://framerusercontent.com/sites/icons/default-favicon-light.v1.png" rel="icon" media="(prefers-color-scheme: light)">
-    <link href="https://framerusercontent.com/sites/icons/default-favicon-dark.v1.png" rel="icon" media="(prefers-color-scheme: dark)">
-    <link rel="apple-touch-icon" href="https://framerusercontent.com/sites/icons/default-touch-icon.v3.png">
+    <link rel="icon" type="image/png" href="assets/images/nav-logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/nav-logo.png">
+    <link rel="apple-touch-icon" href="assets/images/nav-logo.png">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="My Framer Site">
+    <meta property="og:title" content="Right Now Studio | Abhishek Rathod">
     <meta property="og:description" content="Made with Framer">
     <!-- X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="My Framer Site">
+    <meta name="twitter:title" content="Right Now Studio | Abhishek Rathod">
     <meta name="twitter:description" content="Made with Framer">
 	
 	
-	<script>try{if(localStorage.getItem("__framer_force_showing_editorbar_since")){const n=document.createElement("link");n.rel="modulepreload";n.href="https://framer.com/edit/init.mjs";document.head.appendChild(n)}}catch(e){}</script>
+	
 	
 	<!-- Start of headStart -->
     
@@ -256,6 +322,8 @@
     <!-- End of bodyEnd -->
 </body>
 </html>
+
+
 
 
 
